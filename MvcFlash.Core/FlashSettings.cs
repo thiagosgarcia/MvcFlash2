@@ -16,6 +16,7 @@ namespace MvcFlash.Core
         public string Error { get; set; }
         public string Info { get; set; }
         public string Warning { get; set; }
+        public string Note { get; set; }
         public IFlashMessenger Messenger { get; set; }
 
         public string[] Types

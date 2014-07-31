@@ -45,6 +45,16 @@ namespace MvcFlash.Core.Extensions
             return Push(messenger, Flash.Types.Error, title, content, id, template);
         }
 
+        public static MessageBase Note<T>(this IFlashPusher messenger, string title = "", string content = "", string id = "", T data = default(T), string template = "")
+        {
+            return Push(messenger, Flash.Types.Note, title, content, id, data, template);
+        }
+
+        public static MessageBase Note(this IFlashPusher messenger, string title = "", string content = "", string id = "", string template = "")
+        {
+            return Push(messenger, Flash.Types.Note, title, content, id, template);
+        }
+
         private static MessageBase Push<T>(IFlashPusher messenger, string type, string title = "", string content = "", string id = "", T data = default(T), string template = "")
         {
             var message = new SimpleMessage

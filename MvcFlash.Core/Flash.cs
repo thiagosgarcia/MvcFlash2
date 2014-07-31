@@ -11,7 +11,8 @@ namespace MvcFlash.Core
         internal const string DefaultSuccess = "success";
         internal const string DefaultError = "error";
         internal const string DefaultInfo = "info";
-        internal const string DefaulWarning = "warning";
+        internal const string DefaulWarning = "attention";
+        internal const string DefaultNote = "note";
 
         public static class Types
         {
@@ -19,6 +20,7 @@ namespace MvcFlash.Core
             public static string Error = DefaultError;
             public static string Info = DefaultInfo;
             public static string Warning = DefaulWarning;
+            public static string Note = DefaultNote;
         }
 
         /// <summary>
@@ -65,11 +67,12 @@ namespace MvcFlash.Core
             {
                 _instance =  DependencyResolver.Current.GetService<IFlashMessenger>()
                           ?? settings.Messenger;
-
+                
                 Types.Success = settings.Success;
                 Types.Error = settings.Error;
                 Types.Info = settings.Info;
                 Types.Warning = settings.Warning;
+                Types.Note = settings.Note;
             }
         }
 
@@ -85,6 +88,7 @@ namespace MvcFlash.Core
             Types.Error = DefaultError;
             Types.Info = DefaultInfo;
             Types.Warning = DefaulWarning;
+            Types.Note = DefaultNote;
         }
     }
 }
